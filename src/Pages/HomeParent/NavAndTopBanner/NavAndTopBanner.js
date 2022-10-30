@@ -1,6 +1,10 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
-import '../Home.css'
+import '../Home.css';
+import heart from '../../../images/heart.png';
+import banner from '../../../images/hero_image.png';
+import bannerBack from '../../../images/hero_image_back.png';
+import calories from '../../../images/calories.png';
 
 const NavAndTopBanner = () => {
     return (
@@ -54,7 +58,28 @@ const NavAndTopBanner = () => {
                     <button className='btn'>Learn More</button>
                 </div>
             </div>
-            <div className="nt-right">Right</div>
+            <div className="nt-right">
+                <button className="btn">LOGIN</button>
+
+                <div className="heart-rate">
+                    <img src={heart} alt="" />
+
+                    <span>Heart Rate</span>
+                    <span>116bpm</span>
+                </div>
+
+                <img src={banner} className='banner-img' />
+                <img src={bannerBack} className='banner-img-back' />
+
+                <div className="calories">
+                    <img src={calories} alt="" />
+
+                    <div>
+                        <span>Calories Burn</span>
+                        <span>200 kcal</span>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
