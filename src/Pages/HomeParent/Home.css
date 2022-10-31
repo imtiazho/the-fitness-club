@@ -1,21 +1,31 @@
-.nav-topBanner{
+.home-parent {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    overflow: hidden;
+}
+
+.nav-topBanner {
     display: flex;
     justify-content: space-between;
     padding-bottom: 1rem;
 }
-.nt-left{
+
+.nt-left {
     padding: 1.5rem 2rem 1.5rem 2rem;
     flex: 3;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
-.nt-right{
+
+.nt-right {
     flex: 1;
     position: relative;
     background-color: var(--orange);
 }
-.the-best-add{
+
+.the-best-add {
     margin-top: 4rem;
     background-color: #363d42;
     border-radius: 4rem;
@@ -27,10 +37,12 @@
     align-items: center;
     position: relative;
 }
-.the-best-add span{
+
+.the-best-add span {
     z-index: 2;
 }
-.the-best-add div{
+
+.the-best-add div {
     position: absolute;
     background-color: var(--orange);
     width: 5.4rem;
@@ -39,7 +51,8 @@
     border-radius: 3rem;
     z-index: 1;
 }
-.banner-heading{
+
+.banner-heading {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -48,48 +61,58 @@
     font-weight: bold;
     text-overflow: inherit;
 }
-.banner-heading div:nth-of-type(3){
+
+.banner-heading div:nth-of-type(3) {
     font-size: 1rem;
     font-weight: 200;
     letter-spacing: 1px;
     width: 80%;
 }
-.figures{
+
+.figures {
     display: flex;
     gap: 2rem;
 }
-.figures div{
+
+.figures div {
     display: flex;
     flex-direction: column;
 }
-.figures div span:nth-of-type(1){
+
+.figures div span:nth-of-type(1) {
     font-size: 2rem;
     color: #fff;
 }
-.figures div span:nth-of-type(2){
+
+.figures div span:nth-of-type(2) {
     color: var(--gray);
 }
-.banner-btns{
+
+.banner-btns {
     display: flex;
     gap: 1rem;
 }
-.banner-btns button:nth-child(1){
+
+.banner-btns button:nth-child(1) {
     background-color: var(--orange);
     color: #fff;
     width: 8rem;
 }
-.banner-btns button:nth-child(2){
+
+.banner-btns button:nth-child(2) {
     background-color: transparent;
     color: #fff;
     width: 8rem;
     border: 2px solid var(--orange);
 }
-.nt-right .btn{
+
+.nt-right .btn {
     position: absolute;
     top: 2rem;
     right: 3rem;
 }
-.heart-rate{
+
+.heart-rate {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -101,30 +124,36 @@
     top: 7rem;
     right: 4rem;
 }
-.heart-rate img{
+
+.heart-rate img {
     width: 2rem;
 }
-.heart-rate span:nth-child(2){
+
+.heart-rate span:nth-child(2) {
     color: var(--gray);
 }
-.heart-rate span:nth-child(3){
+
+.heart-rate span:nth-child(3) {
     color: #fff;
     font-size: 1.5rem;
 }
-.banner-img{
+
+.banner-img {
     position: absolute;
     top: 9rem;
     right: 8rem;
     width: 23rem;
 }
-.banner-img-back{
+
+.banner-img-back {
     position: absolute;
     top: 4rem;
     right: 19rem;
     width: 15rem;
     z-index: -1;
 }
-.calories{
+
+.calories {
     display: flex;
     gap: 2rem;
     background-color: var(--caloryCard);
@@ -136,18 +165,21 @@
     right: 28rem;
 
 }
-.calories img{
+
+.calories img {
     width: 3rem;
 }
 
-.calories div{
+.calories div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .calories div span:nth-child(1) {
     color: var(--gray);
 }
+
 .calories div span:nth-child(2) {
     color: #fff;
     font-size: 1.5rem;
