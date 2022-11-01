@@ -5,6 +5,8 @@ import Programs from './Programs/Programs';
 import Reason from './Reason/Reason';
 import Plan from './Plan/Plan';
 import Testimonials from './Testimonials/Testimonials';
+import Join from './Join/Join';
+import Footer from './Footer/Footer';
 
 const HomeParent = () => {
     return (
@@ -14,7 +16,8 @@ const HomeParent = () => {
             <Reason />
             <Plan />
             <Testimonials />
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <Join />
+            <Footer /> 
         </div>
     );
 };

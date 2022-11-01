@@ -2,10 +2,16 @@ import React from 'react';
 import './Plan.css'
 import { plansData } from '../../../Data/planData';
 import whiteTick from '../../../images/whiteTick.png';
+import { useNavigate } from 'react-router-dom';
+
 
 const Plan = () => {
+    const navigate = useNavigate();
+
     return (
         <div className='plan-container'>
+            <div className="blur blur-plan-1"></div>
+            <div className="blur blur-plan-2"></div>
             <div className="programs-title">
                 <span className='stroke-text'>READY TO</span>
                 <span>YOUR JOURNEY</span>
@@ -29,12 +35,12 @@ const Plan = () => {
                                 </div>
                             ))}
                         </div>
-
+                        
                         <div>
-                            <span>See more benefits </span>
+                            <span>Don't ever give up...</span>
                         </div>
 
-                        <button className="btn">JOIN NOW</button>
+                        <button onClick={() => navigate('/checkout')} className="btn">JOIN NOW</button>
                     </div>
                    )) 
                 }

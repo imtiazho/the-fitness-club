@@ -2,8 +2,11 @@ import React from 'react';
 import './Programs.css'
 import { programsData } from '../../../Data/programsData'
 import rightArrow from '../../../images/rightArrow.png'
+import { useNavigate } from 'react-router-dom';
 
 const Programs = () => {
+    const navigate = useNavigate();
+
     return (
         <div className='programs' id='programs'>
             <div className="programs-title">
@@ -19,7 +22,7 @@ const Programs = () => {
                         <span>{program.heading}</span>
                         <span>{program.details}</span>
                         <div className="join-now">
-                            <span>Join Now</span>
+                            <button onClick={() => navigate('/checkout')}>Join Now</button>
                             <img src={rightArrow} alt="" />
                         </div>
                     </div>
