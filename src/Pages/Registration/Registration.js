@@ -28,7 +28,7 @@ const Registration = () => {
         user,
         loading,
         hookError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     let from = location.state?.from?.pathname || "/";
 
@@ -91,7 +91,7 @@ const Registration = () => {
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
-            toast.success('Successfully Log In');
+            toast.success('Successfully Sign Up');
         }
     }, [user, navigate, from])
 

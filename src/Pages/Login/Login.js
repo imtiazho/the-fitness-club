@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import auth from '../../Firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
+
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const emailRef = useRef();
 
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -24,6 +26,16 @@ const Login = () => {
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    const resetPassword = async () => {
+        const emailToReset = emailRef.current.value;
+        console.log(emailToReset)
+        
+        await sendPasswordResetEmail(emailToReset);
+        toast.success('Send reset link');
+    }
 
     let from = location.state?.from?.pathname || "/";
 
@@ -62,18 +74,18 @@ const Login = () => {
             navigate(from, { replace: true });
             toast.success('Successfully Log In');
         }
-    }, [user, navigate, from]);
+    }, [user, navigate, from, loading]);
 
     useEffect(() => {
         const dbError = hookError;
         if (dbError) {
-            if(dbError?.message.includes('user-not-found')){
+            if (dbError?.message.includes('user-not-found')) {
                 toast.error("Invalid Email")
             }
-            else if(dbError?.message.includes('wrong-password')){
+            else if (dbError?.message.includes('wrong-password')) {
                 toast.error("Wrong Password")
             }
-            else{
+            else {
                 toast.error("Something wrong. Try again.")
             }
         }
@@ -92,7 +104,7 @@ const Login = () => {
                 <form onSubmit={handleSubmit} className='form'>
                     <div>
                         <div className="input-field">
-                            <input onBlur={handleEmail} type="email" placeholder='Email' name="email" />
+                            <input ref={emailRef} onBlur={handleEmail} type="email" placeholder='Email' name="email" />
                         </div>
                         {errors.emailError && <p className='error-message'>{errors.emailError}</p>}
                     </div>
@@ -112,7 +124,7 @@ const Login = () => {
 
             <div className='from-important-link'>
                 <Link to='/registration'>Don't have any account?</Link>
-                <Link>Forget Password?</Link>
+                <Link onClick={resetPassword}>Forget Password?</Link>
             </div>
         </div>
     );

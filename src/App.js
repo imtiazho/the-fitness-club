@@ -7,6 +7,7 @@ import CheckOut from './Pages/CheckOut/CheckOut';
 import Registration from './Pages/Registration/Registration';
 import { Toaster } from 'react-hot-toast';
 import RequiredAuth from './RequiredAuth/RequiredAuth';
+import Spinner from './Spinner/Spinner';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/registration' element={<Registration />}></Route>
         <Route path='/about' element={<About />}></Route>
+        <Route path='/spinner' element={<Spinner />}></Route>
         <Route path='/checkout' element={
           <RequiredAuth>
             <CheckOut />
